@@ -3,23 +3,15 @@ import {
   useOpenDocuments,
 } from '@embedpdf/plugin-document-manager/react'
 import { useCallback, useEffect } from 'react'
-import { useShallow } from 'zustand/react/shallow'
 
 import { useWorksheetGeneration } from '@/core/generate'
-import { useWorksheetDocumentStore } from '../stores/document'
+import { useWorksheetDocument } from './worksheet-document'
 
 function useActiveWorksheet() {
   const { provides: documentManager } = useDocumentManagerCapability()
   const { blob } = useWorksheetGeneration()
   const [worksheet] = useOpenDocuments()
-  const { url, setUrl, clearUrl, sync } = useWorksheetDocumentStore(
-    useShallow((state) => ({
-      url: state.url,
-      setUrl: state.setUrl,
-      clearUrl: state.clearUrl,
-      sync: state.sync,
-    }))
-  )
+  const { url, setUrl, clearUrl, sync } = useWorksheetDocument()
 
   useEffect(() => {
     if (!blob) return

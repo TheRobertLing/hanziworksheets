@@ -58,6 +58,7 @@ function useWorksheetGeneration() {
       status,
       error,
       isGenerating: status === 'loading',
+      isGenerationError: status === 'error',
       canGenerate,
       generate,
     }),
