@@ -4,7 +4,7 @@ import { DocumentContent } from '@embedpdf/plugin-document-manager/react'
 import { useWorksheetGeneration } from '@/core/generate'
 import { useMinDelay } from '@/shared/hooks/use-min-delay'
 import { useActiveDocument } from '../contexts/document-active'
-import { useWorksheetDocumentStore } from '../stores/document'
+import { useWorksheetDocument } from '../hooks/worksheet-document'
 import { DocumentEmpty } from './document-empty'
 import { DocumentError } from './document-error'
 import { DocumentLoading } from './document-loading'
@@ -15,23 +15,9 @@ interface DocumentProps {
 
 function Document({ children }: DocumentProps) {
   const { documentId, retry: retryDocument } = useActiveDocument()
-  const { status, error, isGenerating, canGenerate, generate } = useWorksheetGeneration()
-  const documentError = useWorksheetDocumentStore((state) => state.error)
+  const { error, isGenerating, isGenerationError, canGenerate, generate } = useWorksheetGeneration()
+  const { error: documentError } = useWorksheetDocument()
   const { ready } = useMinDelay(1000, 200, documentId)
-
-  if (status === 'error') {
-    return (
-      <DocumentError
-        error={error ?? 'Could not generate worksheet'}
-        onRetry={generate}
-        retryDisabled={!canGenerate || isGenerating}
-      />
-    )
-  }
-
-  if (status === 'loading') {
-    return <DocumentLoading description="Generating worksheet" />
-  }
 
   if (!documentId) {
     return <DocumentEmpty />
@@ -40,16 +26,21 @@ function Document({ children }: DocumentProps) {
   return (
     <DocumentContent documentId={documentId}>
       {({ isLoaded, isError, isLoading }) => {
-        if (isError) {
+        if (isError || isGenerationError) {
           return (
             <DocumentError
-              error={documentError ?? 'Could not load specified PDF'}
-              onRetry={retryDocument}
+              error={
+                isGenerationError
+                  ? (error ?? 'Could not generate worksheet')
+                  : (documentError ?? 'Could not load specified PDF')
+              }
+              onRetry={isGenerationError ? generate : retryDocument}
+              retryDisabled={isGenerationError && (!canGenerate || isGenerating)}
             />
           )
         }
 
-        if (isLoading || !ready) {
+        if (isLoading || isGenerating || !ready) {
           return <DocumentLoading description="Loading worksheet preview" />
         }
 
