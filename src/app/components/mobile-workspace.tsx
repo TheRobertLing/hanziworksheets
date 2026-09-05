@@ -25,7 +25,7 @@ function MobileWorkspace() {
             tooltipProps={{ side: 'left', children: 'Edit worksheet configuration' }}
             buttonProps={{
               render: <SheetTrigger />,
-              variant: 'ghost',
+              variant: 'outline',
               size: 'icon',
               className: 'rounded-full',
               'aria-label': 'Edit worksheet configuration',
