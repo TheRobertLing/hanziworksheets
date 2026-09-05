@@ -1,8 +1,8 @@
 import { DocumentManager } from './document-manager'
 import { DocumentViewer } from './document-viewer'
-import { PdfEngine } from './engine'
+import { PdfEngine } from './pdf-engine'
 
-function Preview() {
+function WorksheetPreview() {
   return (
     <PdfEngine>
       <DocumentManager>
@@ -12,4 +12,4 @@ function Preview() {
   )
 }
 
-export { Preview }
+export { WorksheetPreview }

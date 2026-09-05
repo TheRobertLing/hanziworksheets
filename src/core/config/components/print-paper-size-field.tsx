@@ -1,14 +1,10 @@
-import { useShallow } from 'zustand/react/shallow'
-
 import { Field, FieldContent, FieldLabel, FieldTitle } from '@/shared/ui/primitives/field'
 import { RadioGroup, RadioGroupItem } from '@/shared/ui/primitives/radio-group'
 
-import { usePrintStore } from '../stores/print'
+import { usePrintPaperSize } from '../hooks/print-paper-size'
 
 function PrintPaperSizeField() {
-  const { paper, setPaper } = usePrintStore(
-    useShallow((state) => ({ paper: state.paper, setPaper: state.setPaper }))
-  )
+  const { paper, setPaper } = usePrintPaperSize()
 
   return (
     <Field>

@@ -1,8 +1,8 @@
 import { useZoom } from '@embedpdf/plugin-zoom/react'
-import { useDocumentId } from '../contexts/document-active'
+import { useDocumentId } from '../contexts/active-document'
 
 function useWorksheetZoom() {
-  const documentId = useDocumentId()
+  const { documentId } = useDocumentId()
   const { state, provides: zoom } = useZoom(documentId)
 
   return {

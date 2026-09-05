@@ -7,7 +7,7 @@ import { ScrollPluginPackage } from '@embedpdf/plugin-scroll/react'
 import { ViewportPluginPackage } from '@embedpdf/plugin-viewport/react'
 import { ZoomPluginPackage } from '@embedpdf/plugin-zoom/react'
 
-const plugins = [
+const pdfEnginePlugins = [
   createPluginRegistration(DocumentManagerPluginPackage),
   createPluginRegistration(ViewportPluginPackage, { viewportGap: 64 }),
   createPluginRegistration(ScrollPluginPackage),
@@ -19,4 +19,4 @@ const plugins = [
   createPluginRegistration(ExportPluginPackage, { defaultFileName: 'worksheet.pdf' }),
 ]
 
-export { plugins }
+export { pdfEnginePlugins }

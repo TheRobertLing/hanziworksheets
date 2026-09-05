@@ -1,36 +1,36 @@
 import { create } from 'zustand'
 
-type WorksheetPDFStatus = 'idle' | 'loading' | 'loaded' | 'error'
+type WorksheetDocumentStatus = 'idle' | 'loading' | 'loaded' | 'error'
 
 interface WorksheetDocumentStore {
-  url: string | null
-  status: WorksheetPDFStatus
+  documentUrl: string | null
+  status: WorksheetDocumentStatus
   error: string | null
-  setUrl: (url: string) => void
-  clearUrl: (url: string) => void
-  sync: (status: WorksheetPDFStatus, error: string | null) => void
+  setDocumentUrl: (documentUrl: string) => void
+  clearDocumentUrl: (documentUrl: string) => void
+  syncDocumentStatus: (status: WorksheetDocumentStatus, error: string | null) => void
 }
 
 const useWorksheetDocumentStore = create<WorksheetDocumentStore>()((set, get) => ({
-  url: null,
+  documentUrl: null,
   status: 'idle',
   error: null,
 
-  setUrl: (url) => {
-    const previousUrl = get().url
-    if (previousUrl) URL.revokeObjectURL(previousUrl)
+  setDocumentUrl: (documentUrl) => {
+    const previousDocumentUrl = get().documentUrl
+    if (previousDocumentUrl) URL.revokeObjectURL(previousDocumentUrl)
 
-    set({ url, status: 'loading', error: null })
+    set({ documentUrl, status: 'loading', error: null })
   },
 
-  clearUrl: (url) => {
-    if (get().url !== url) return
+  clearDocumentUrl: (documentUrl) => {
+    if (get().documentUrl !== documentUrl) return
 
-    URL.revokeObjectURL(url)
-    set({ url: null, status: 'idle', error: null })
+    URL.revokeObjectURL(documentUrl)
+    set({ documentUrl: null, status: 'idle', error: null })
   },
-  sync: (status, error) => set({ status, error }),
+  syncDocumentStatus: (status, error) => set({ status, error }),
 }))
 
 export { useWorksheetDocumentStore }
-export type { WorksheetPDFStatus }
+export type { WorksheetDocumentStatus }

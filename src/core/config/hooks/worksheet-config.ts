@@ -1,10 +1,14 @@
 import { useMemo } from 'react'
-import { useShallow } from 'zustand/react/shallow'
 
 import type { PrintConfig, TemplateConfig } from '@/lib/hanzi-worksheet-generator'
-import { useCharactersStore } from '../stores/characters'
-import { usePrintStore } from '../stores/print'
-import { useTemplateStore } from '../stores/template'
+import { useCharacterEntries } from './character-entries'
+import { usePrintMargin } from './print-margin'
+import { usePrintOrientation } from './print-orientation'
+import { usePrintPaperSize } from './print-paper-size'
+import { useTemplateGridSize } from './template-grid-size'
+import { useTemplateGridStyle } from './template-grid-style'
+import { useTemplateShowPinyin } from './template-show-pinyin'
+import { useTemplateShowStrokeGuide } from './template-show-stroke-guide'
 
 interface WorksheetCharacterConfig {
   readonly id: string
@@ -19,29 +23,21 @@ interface WorksheetConfig {
 }
 
 function useWorksheetConfig(): WorksheetConfig {
-  const characters = useCharactersStore((state) => state.characters)
-  const { showPinyin, showStrokeGuide, gridStyle, gridSize } = useTemplateStore(
-    useShallow((state) => ({
-      showPinyin: state.showPinyin,
-      showStrokeGuide: state.showStrokeGuide,
-      gridStyle: state.gridStyle,
-      gridSize: state.gridSize,
-    }))
-  )
-  const { paper, orientation, margin } = usePrintStore(
-    useShallow((state) => ({
-      paper: state.paper,
-      orientation: state.orientation,
-      margin: state.margin,
-    }))
-  )
+  const { characterEntries } = useCharacterEntries()
+  const { gridSize } = useTemplateGridSize()
+  const { gridStyle } = useTemplateGridStyle()
+  const { showPinyin } = useTemplateShowPinyin()
+  const { showStrokeGuide } = useTemplateShowStrokeGuide()
+  const { paper } = usePrintPaperSize()
+  const { orientation } = usePrintOrientation()
+  const { margin } = usePrintMargin()
 
   return useMemo(
     () => ({
-      characters: characters.map(({ id, character, pinyinSelection }) => ({
+      characters: characterEntries.map(({ id, character, pinyin }) => ({
         id,
         character,
-        pinyin: pinyinSelection,
+        pinyin,
       })),
       template: {
         template: 'template-1',
@@ -56,7 +52,7 @@ function useWorksheetConfig(): WorksheetConfig {
         margin,
       },
     }),
-    [characters, gridSize, gridStyle, margin, orientation, paper, showPinyin, showStrokeGuide]
+    [characterEntries, gridSize, gridStyle, margin, orientation, paper, showPinyin, showStrokeGuide]
   )
 }
 

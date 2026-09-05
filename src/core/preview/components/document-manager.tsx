@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react'
 
-import { ActiveDocumentContext } from '../contexts/document-active'
-import { useActiveWorksheet } from '../hooks/document-active-worksheet'
+import { ActiveDocumentContext } from '../contexts/active-document'
+import { useActiveWorksheetDocument } from '../hooks/active-worksheet-document'
 import { Document } from './document'
 
 interface DocumentManagerProps {
@@ -9,10 +9,10 @@ interface DocumentManagerProps {
 }
 
 function DocumentManager({ children }: DocumentManagerProps) {
-  const { activeDocumentId, retry } = useActiveWorksheet()
+  const { activeDocumentId, retryDocument } = useActiveWorksheetDocument()
 
   return (
-    <ActiveDocumentContext value={{ documentId: activeDocumentId, retry }}>
+    <ActiveDocumentContext value={{ documentId: activeDocumentId, retryDocument }}>
       <Document>{children}</Document>
     </ActiveDocumentContext>
   )

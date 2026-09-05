@@ -1,19 +1,12 @@
-import { useShallow } from 'zustand/react/shallow'
-
 import { Field, FieldContent, FieldLabel, FieldTitle } from '@/shared/ui/primitives/field'
 import { RadioGroup, RadioGroupItem } from '@/shared/ui/primitives/radio-group'
 
-import { usePrintStore } from '../stores/print'
+import { usePrintOrientation } from '../hooks/print-orientation'
 
 import type { Orientation } from '@/lib/hanzi-worksheet-generator/types'
 
 function PrintOrientationField() {
-  const { orientation, setOrientation } = usePrintStore(
-    useShallow((state) => ({
-      orientation: state.orientation,
-      setOrientation: state.setOrientation,
-    }))
-  )
+  const { orientation, setOrientation } = usePrintOrientation()
 
   return (
     <Field>

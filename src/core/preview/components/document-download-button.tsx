@@ -2,10 +2,10 @@ import { Download } from 'lucide-react'
 import { useExport } from '@embedpdf/plugin-export/react'
 
 import { TooltipButton } from '@/shared/ui/composites/tooltip-button'
-import { useDocumentId } from '../contexts/document-active'
+import { useDocumentId } from '../contexts/active-document'
 
 function DocumentDownloadButton() {
-  const documentId = useDocumentId()
+  const { documentId } = useDocumentId()
   const { provides: exporter } = useExport(documentId)
 
   return (

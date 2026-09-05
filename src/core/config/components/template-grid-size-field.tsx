@@ -1,14 +1,10 @@
-import { useShallow } from 'zustand/react/shallow'
-
 import { Field, FieldLabel } from '@/shared/ui/primitives/field'
 import { Slider } from '@/shared/ui/primitives/slider'
 
-import { useTemplateStore } from '../stores/template'
+import { useTemplateGridSize } from '../hooks/template-grid-size'
 
 function TemplateGridSizeField() {
-  const { gridSize, setGridSize } = useTemplateStore(
-    useShallow((state) => ({ gridSize: state.gridSize, setGridSize: state.setGridSize }))
-  )
+  const { gridSize, setGridSize } = useTemplateGridSize()
 
   return (
     <Field>

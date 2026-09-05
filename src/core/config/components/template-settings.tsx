@@ -5,12 +5,12 @@ import { TemplateGridStyleField } from './template-grid-style-field'
 import { TemplateResetButton } from './template-reset-button'
 import { TemplateShowPinyinField } from './template-show-pinyin-field'
 import { TemplateShowStrokeGuideField } from './template-show-stroke-guide-field'
-import { TemplateChoiceField } from './template-choice-field'
+import { TemplateSelectionField } from './template-selection-field'
 
-function Template() {
+function TemplateSettings() {
   return (
     <FieldGroup className="gap-3 p-1">
-      <TemplateChoiceField />
+      <TemplateSelectionField />
       <FieldSeparator />
       <TemplateShowPinyinField />
       <TemplateShowStrokeGuideField />
@@ -24,4 +24,4 @@ function Template() {
   )
 }
 
-export { Template }
+export { TemplateSettings }

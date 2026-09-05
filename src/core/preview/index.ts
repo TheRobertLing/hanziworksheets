@@ -1,1 +1,1 @@
-export { Preview } from './components/preview'
+export { WorksheetPreview } from './components/worksheet-preview'

@@ -3,10 +3,10 @@ import { RotateCcw } from 'lucide-react'
 import { Button } from '@/shared/ui/primitives/button'
 import { Field } from '@/shared/ui/primitives/field'
 
-import { usePrintStore } from '../stores/print'
+import { usePrintReset } from '../hooks/print-reset'
 
 function PrintResetButton() {
-  const reset = usePrintStore((state) => state.reset)
+  const { reset } = usePrintReset()
 
   return (
     <Field orientation="horizontal">

@@ -1,10 +1,10 @@
 import { Empty, EmptyDescription, EmptyHeader, EmptyTitle } from '@/shared/ui/primitives/empty'
 
-interface EngineErrorProps {
+interface PdfEngineErrorProps {
   error: Error | string
 }
 
-function EngineError({ error }: EngineErrorProps) {
+function PdfEngineError({ error }: PdfEngineErrorProps) {
   return (
     <Empty className="h-full">
       <EmptyHeader className="animate-in duration-300 fade-in-0">
@@ -15,4 +15,4 @@ function EngineError({ error }: EngineErrorProps) {
   )
 }
 
-export { EngineError }
+export { PdfEngineError }

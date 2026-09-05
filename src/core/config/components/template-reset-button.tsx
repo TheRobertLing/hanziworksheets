@@ -3,10 +3,10 @@ import { RotateCcw } from 'lucide-react'
 import { Button } from '@/shared/ui/primitives/button'
 import { Field } from '@/shared/ui/primitives/field'
 
-import { useTemplateStore } from '../stores/template'
+import { useTemplateReset } from '../hooks/template-reset'
 
 function TemplateResetButton() {
-  const reset = useTemplateStore((state) => state.reset)
+  const { reset } = useTemplateReset()
 
   return (
     <Field orientation="horizontal">

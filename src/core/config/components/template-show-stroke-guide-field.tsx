@@ -1,17 +1,10 @@
-import { useShallow } from 'zustand/react/shallow'
-
 import { Field, FieldLabel } from '@/shared/ui/primitives/field'
 import { Switch } from '@/shared/ui/primitives/switch'
 
-import { useTemplateStore } from '../stores/template'
+import { useTemplateShowStrokeGuide } from '../hooks/template-show-stroke-guide'
 
 function TemplateShowStrokeGuideField() {
-  const { showStrokeGuide, setShowStrokeGuide } = useTemplateStore(
-    useShallow((state) => ({
-      showStrokeGuide: state.showStrokeGuide,
-      setShowStrokeGuide: state.setShowStrokeGuide,
-    }))
-  )
+  const { showStrokeGuide, setShowStrokeGuide } = useTemplateShowStrokeGuide()
 
   return (
     <Field orientation="horizontal">

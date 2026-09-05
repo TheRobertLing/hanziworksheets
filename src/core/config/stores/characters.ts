@@ -1,29 +1,29 @@
 import { create } from 'zustand'
 import { getPinyinsForCharacter, isSupportedCharacter } from '@/lib/hanzi-to-pinyin'
 
-interface CharactersEntry {
+interface CharacterEntry {
   id: string
   character: string
   pinyinOptions: string[]
-  pinyinSelection: string
+  pinyin: string
 }
 
-interface CharactersStore {
-  characters: CharactersEntry[]
-  addCharactersToList: (characters: string[]) => string[]
-  updatePinyinForCharacter: (id: string, pinyin: string) => void
-  removeCharacterFromList: (id: string) => void
-  resetCharacterList: () => void
+interface CharacterEntriesStore {
+  characterEntries: CharacterEntry[]
+  addCharacterEntries: (charactersToAdd: string[]) => string[]
+  setCharacterEntryPinyin: (id: string, pinyin: string) => void
+  removeCharacterEntry: (id: string) => void
+  clearCharacterEntries: () => void
 }
 
-const useCharactersStore = create<CharactersStore>()((set) => ({
-  characters: [],
+const useCharacterEntriesStore = create<CharacterEntriesStore>()((set) => ({
+  characterEntries: [],
 
-  addCharactersToList: (characters) => {
+  addCharacterEntries: (charactersToAdd) => {
     const supported: string[] = []
     const unsupported: string[] = []
 
-    for (const character of characters) {
+    for (const character of charactersToAdd) {
       if (isSupportedCharacter(character)) {
         supported.push(character)
       } else {
@@ -33,15 +33,15 @@ const useCharactersStore = create<CharactersStore>()((set) => ({
 
     if (supported.length > 0) {
       set((state) => ({
-        characters: [
-          ...state.characters,
+        characterEntries: [
+          ...state.characterEntries,
           ...supported.map((character) => {
             const pinyinOptions = getPinyinsForCharacter(character)
             return {
               id: crypto.randomUUID(),
               character,
               pinyinOptions,
-              pinyinSelection: pinyinOptions[0] ?? '',
+              pinyin: pinyinOptions[0] ?? '',
             }
           }),
         ],
@@ -51,20 +51,20 @@ const useCharactersStore = create<CharactersStore>()((set) => ({
     return unsupported
   },
 
-  updatePinyinForCharacter: (id, pinyin) =>
+  setCharacterEntryPinyin: (id, pinyin) =>
     set((state) => ({
-      characters: state.characters.map((entry) =>
-        entry.id === id ? { ...entry, pinyinSelection: pinyin } : entry
+      characterEntries: state.characterEntries.map((characterEntry) =>
+        characterEntry.id === id ? { ...characterEntry, pinyin } : characterEntry
       ),
     })),
 
-  removeCharacterFromList: (id) =>
+  removeCharacterEntry: (id) =>
     set((state) => ({
-      characters: state.characters.filter((entry) => entry.id !== id),
+      characterEntries: state.characterEntries.filter((characterEntry) => characterEntry.id !== id),
     })),
 
-  resetCharacterList: () => set({ characters: [] }),
+  clearCharacterEntries: () => set({ characterEntries: [] }),
 }))
 
-export { useCharactersStore }
-export type { CharactersEntry }
+export { useCharacterEntriesStore }
+export type { CharacterEntry }

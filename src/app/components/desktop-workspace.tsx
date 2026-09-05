@@ -1,12 +1,12 @@
 import { GenerateWorksheetButton } from '@/core/generate'
-import { Preview } from '@/core/preview'
+import { WorksheetPreview } from '@/core/preview'
 import { ConfigPanel } from '@/core/config'
 
 function DesktopWorkspace() {
   return (
     <main className="flex h-full min-h-0">
       <div className="min-w-0 flex-1 bg-muted">
-        <Preview />
+        <WorksheetPreview />
       </div>
       <div className="flex w-90 shrink-0 flex-col border-s">
         <div className="min-h-0 flex-1 scrollbar-gutter-stable overflow-y-auto overscroll-none">

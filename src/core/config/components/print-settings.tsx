@@ -5,7 +5,7 @@ import { PrintOrientationField } from './print-orientation-field'
 import { PrintPaperSizeField } from './print-paper-size-field'
 import { PrintResetButton } from './print-reset-button'
 
-function Print() {
+function PrintSettings() {
   return (
     <FieldGroup className="gap-3 p-1">
       <PrintPaperSizeField />
@@ -19,4 +19,4 @@ function Print() {
   )
 }
 
-export { Print }
+export { PrintSettings }
