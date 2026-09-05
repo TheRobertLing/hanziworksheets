@@ -13,11 +13,7 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --font-heading: var(--font-sans);
-  --font-sans: var(--font-sans);
-  --font-mono: var(--font-mono);
-  --font-serif: var(--font-serif);
-
+  /* 1. Color */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -51,6 +47,27 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
 
+  /* Semantic state placeholders: values intentionally unset. */
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-info: var(--info);
+  --color-info-foreground: var(--info-foreground);
+
+  /* 2. Typography */
+  --font-heading: var(--font-sans);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+  --font-serif: var(--font-serif);
+
+  /* 3. Spacing */
+
+  /* 4. Sizing */
+
+  /* 5. Border */
+
+  /* 6. Radius */
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -59,6 +76,7 @@
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
 
+  /* 7. Shadow / elevation */
   --shadow-2xs: var(--shadow-2xs);
   --shadow-xs: var(--shadow-xs);
   --shadow-sm: var(--shadow-sm);
@@ -67,9 +85,24 @@
   --shadow-lg: var(--shadow-lg);
   --shadow-xl: var(--shadow-xl);
   --shadow-2xl: var(--shadow-2xl);
+
+  /* 8. Motion */
+
+  /* 9. Opacity */
+
+  /* 10. Layering */
+
+  /* 11. Breakpoints */
+
+  /* 12. Layout */
+
+  /* 13. Blur / effects */
+
+  /* 14. Aspect ratio */
 }
 
 :root {
+  /* 1. Color */
   --background: oklch(0.9818 0.0054 95.0986);
   --foreground: oklch(0.145 0 0);
   --card: oklch(0.9818 0.0054 95.0986);
@@ -102,12 +135,34 @@
   --sidebar-accent-foreground: oklch(0.325 0 0);
   --sidebar-border: oklch(0.85 0.005 56.366);
   --sidebar-ring: oklch(0.54 0.12 170);
+
+  /* Semantic state placeholders: values intentionally unset. */
+  --success: ;
+  --success-foreground: ;
+  --warning: ;
+  --warning-foreground: ;
+  --info: ;
+  --info-foreground: ;
+
+  /* 2. Typography */
   --font-sans:
     'OPPOSans', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue',
     Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   --font-serif: ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+  --tracking-normal: 0em;
+
+  /* 3. Spacing */
+  --spacing: 0.25rem;
+
+  /* 4. Sizing */
+
+  /* 5. Border */
+
+  /* 6. Radius */
   --radius: 0.5rem;
+
+  /* 7. Shadow / elevation */
   --shadow-x: 0;
   --shadow-y: 0;
   --shadow-blur: 3px;
@@ -122,11 +177,24 @@
   --shadow-lg: 0 0 3px 0px hsl(0 0% 0% / 0.1), 0 0 9px -1px hsl(0 0% 0% / 0.1);
   --shadow-xl: 0 0 3px 0px hsl(0 0% 0% / 0.1), 0 0 15px -1px hsl(0 0% 0% / 0.1);
   --shadow-2xl: 0 0 3px 0px hsl(0 0% 0% / 0.25);
-  --tracking-normal: 0em;
-  --spacing: 0.25rem;
+
+  /* 8. Motion */
+
+  /* 9. Opacity */
+
+  /* 10. Layering */
+
+  /* 11. Breakpoints */
+
+  /* 12. Layout */
+
+  /* 13. Blur / effects */
+
+  /* 14. Aspect ratio */
 }
 
 .dark {
+  /* 1. Color */
   --background: oklch(0.2679 0.0036 106.6427);
   --foreground: oklch(0.8074 0.0142 93.0137);
   --card: oklch(0.2679 0.0036 106.6427);
@@ -159,12 +227,32 @@
   --sidebar-accent-foreground: oklch(0.9663 0.008 98.8792);
   --sidebar-border: oklch(0.36 0.007 106.8928);
   --sidebar-ring: oklch(0.72 0.13 170);
+
+  /* Semantic state placeholders: values intentionally unset. */
+  --success: ;
+  --success-foreground: ;
+  --warning: ;
+  --warning-foreground: ;
+  --info: ;
+  --info-foreground: ;
+
+  /* 2. Typography */
   --font-sans:
     'OPPOSans', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue',
     Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   --font-serif: ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+
+  /* 3. Spacing */
+
+  /* 4. Sizing */
+
+  /* 5. Border */
+
+  /* 6. Radius */
   --radius: 0.5rem;
+
+  /* 7. Shadow / elevation */
   --shadow-x: 0;
   --shadow-y: 0;
   --shadow-blur: 3px;
@@ -179,6 +267,20 @@
   --shadow-lg: 0 0 3px 0px hsl(0 0% 0% / 0.1), 0 0 9px -1px hsl(0 0% 0% / 0.1);
   --shadow-xl: 0 0 3px 0px hsl(0 0% 0% / 0.1), 0 0 15px -1px hsl(0 0% 0% / 0.1);
   --shadow-2xl: 0 0 3px 0px hsl(0 0% 0% / 0.25);
+
+  /* 8. Motion */
+
+  /* 9. Opacity */
+
+  /* 10. Layering */
+
+  /* 11. Breakpoints */
+
+  /* 12. Layout */
+
+  /* 13. Blur / effects */
+
+  /* 14. Aspect ratio */
 }
 
 @layer base {
