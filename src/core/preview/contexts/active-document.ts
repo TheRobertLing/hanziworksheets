@@ -1,20 +1,20 @@
 import { createContext, use } from 'react'
 
-interface ActiveDocumentValue {
+interface ActiveDocumentContextValue {
   documentId: string | null
-  retry: () => void
+  retryDocument: () => void
 }
 
-const ActiveDocumentContext = createContext<ActiveDocumentValue | null>(null)
+const ActiveDocumentContext = createContext<ActiveDocumentContextValue | null>(null)
 
 function useActiveDocument() {
-  const value = use(ActiveDocumentContext)
+  const contextValue = use(ActiveDocumentContext)
 
-  if (!value) {
+  if (!contextValue) {
     throw new Error('useActiveDocument must be used within an ActiveDocumentProvider')
   }
 
-  return value
+  return contextValue
 }
 
 function useDocumentId() {
@@ -24,8 +24,8 @@ function useDocumentId() {
     throw new Error('useDocumentId must be used within a loaded document')
   }
 
-  return documentId
+  return { documentId }
 }
 
 export { ActiveDocumentContext, useActiveDocument, useDocumentId }
-export type { ActiveDocumentValue }
+export type { ActiveDocumentContextValue }

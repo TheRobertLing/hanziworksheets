@@ -4,34 +4,34 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/shared/ui/primitives/accordion'
-import { Characters } from './characters'
-import { Print } from './print'
-import { Template } from './template'
+import { CharacterEntriesSection } from './character-entries-section'
+import { PrintSettings } from './print-settings'
+import { TemplateSettings } from './template-settings'
 
-const TRIGGER_CLASS = 'rounded-t-[inherit] p-3'
-const ITEM_CLASS = 'rounded-lg border'
+const accordionTriggerClassName = 'rounded-t-[inherit] p-3'
+const accordionItemClassName = 'rounded-lg border'
 
 function ConfigPanel() {
   return (
     <Accordion defaultValue={['characters']} multiple className="gap-3 rounded-none border-none">
-      <AccordionItem value="characters" className={ITEM_CLASS}>
-        <AccordionTrigger className={TRIGGER_CLASS}>Characters</AccordionTrigger>
+      <AccordionItem value="characters" className={accordionItemClassName}>
+        <AccordionTrigger className={accordionTriggerClassName}>Characters</AccordionTrigger>
         <AccordionContent className="py-2">
-          <Characters />
+          <CharacterEntriesSection />
         </AccordionContent>
       </AccordionItem>
 
-      <AccordionItem value="worksheet" className={ITEM_CLASS}>
-        <AccordionTrigger className={TRIGGER_CLASS}>Template</AccordionTrigger>
+      <AccordionItem value="worksheet" className={accordionItemClassName}>
+        <AccordionTrigger className={accordionTriggerClassName}>Template</AccordionTrigger>
         <AccordionContent className="py-2">
-          <Template />
+          <TemplateSettings />
         </AccordionContent>
       </AccordionItem>
 
-      <AccordionItem value="page" className={ITEM_CLASS}>
-        <AccordionTrigger className={TRIGGER_CLASS}>Print</AccordionTrigger>
+      <AccordionItem value="page" className={accordionItemClassName}>
+        <AccordionTrigger className={accordionTriggerClassName}>Print</AccordionTrigger>
         <AccordionContent className="py-2">
-          <Print />
+          <PrintSettings />
         </AccordionContent>
       </AccordionItem>
     </Accordion>

@@ -2,10 +2,10 @@ import { Viewport } from '@embedpdf/plugin-viewport/react'
 import { Scroller } from '@embedpdf/plugin-scroll/react'
 import { RenderLayer } from '@embedpdf/plugin-render/react'
 
-import { useDocumentId } from '../contexts/document-active'
+import { useDocumentId } from '../contexts/active-document'
 
 function DocumentSurface() {
-  const documentId = useDocumentId()
+  const { documentId } = useDocumentId()
 
   return (
     <div className="relative min-h-0 min-w-0 flex-1 overflow-hidden">

@@ -1,14 +1,10 @@
-import { useShallow } from 'zustand/react/shallow'
-
 import { Field, FieldContent, FieldLabel, FieldTitle } from '@/shared/ui/primitives/field'
 import { RadioGroup, RadioGroupItem } from '@/shared/ui/primitives/radio-group'
 
-import { useTemplateStore, type GridStyle } from '../stores/template'
+import { useTemplateGridStyle, type GridStyle } from '../hooks/template-grid-style'
 
 function TemplateGridStyleField() {
-  const { gridStyle, setGridStyle } = useTemplateStore(
-    useShallow((state) => ({ gridStyle: state.gridStyle, setGridStyle: state.setGridStyle }))
-  )
+  const { gridStyle, setGridStyle } = useTemplateGridStyle()
 
   return (
     <Field>

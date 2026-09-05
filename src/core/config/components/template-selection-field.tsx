@@ -7,7 +7,7 @@ import {
   SelectValue,
 } from '@/shared/ui/primitives/select'
 
-function TemplateChoiceField() {
+function TemplateSelectionField() {
   return (
     <Field>
       <FieldLabel htmlFor="opt-template">Template</FieldLabel>
@@ -23,4 +23,4 @@ function TemplateChoiceField() {
   )
 }
 
-export { TemplateChoiceField }
+export { TemplateSelectionField }

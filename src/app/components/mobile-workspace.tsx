@@ -1,7 +1,7 @@
 import { PencilIcon } from 'lucide-react'
 
 import { GenerateWorksheetButton } from '@/core/generate'
-import { Preview } from '@/core/preview'
+import { WorksheetPreview } from '@/core/preview'
 import { ConfigPanel } from '@/core/config'
 import { TooltipButton } from '@/shared/ui/composites/tooltip-button'
 import {
@@ -17,7 +17,7 @@ import {
 function MobileWorkspace() {
   return (
     <main className="relative h-full min-h-0 bg-muted">
-      <Preview />
+      <WorksheetPreview />
 
       <Sheet>
         <div className="absolute right-4 bottom-4 z-20 flex items-center rounded-full bg-popover/70 shadow-lg backdrop-blur-sm">

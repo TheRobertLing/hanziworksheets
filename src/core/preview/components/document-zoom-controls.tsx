@@ -2,7 +2,7 @@ import { ZoomIn, ZoomOut } from 'lucide-react'
 
 import { TextTooltip } from '@/shared/ui/composites/text-tooltip'
 import { TooltipButton } from '@/shared/ui/composites/tooltip-button'
-import { useWorksheetZoom } from '../hooks/document-zoom'
+import { useWorksheetZoom } from '../hooks/worksheet-zoom'
 
 function DocumentZoomControls() {
   const { zoomLevel, zoomIn, zoomOut } = useWorksheetZoom()

@@ -1,17 +1,10 @@
-import { useShallow } from 'zustand/react/shallow'
-
 import { Field, FieldLabel } from '@/shared/ui/primitives/field'
 import { Switch } from '@/shared/ui/primitives/switch'
 
-import { useTemplateStore } from '../stores/template'
+import { useTemplateShowPinyin } from '../hooks/template-show-pinyin'
 
 function TemplateShowPinyinField() {
-  const { showPinyin, setShowPinyin } = useTemplateStore(
-    useShallow((state) => ({
-      showPinyin: state.showPinyin,
-      setShowPinyin: state.setShowPinyin,
-    }))
-  )
+  const { showPinyin, setShowPinyin } = useTemplateShowPinyin()
 
   return (
     <Field orientation="horizontal">

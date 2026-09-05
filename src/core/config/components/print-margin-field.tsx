@@ -1,14 +1,10 @@
-import { useShallow } from 'zustand/react/shallow'
-
 import { Field, FieldLabel } from '@/shared/ui/primitives/field'
 import { Slider } from '@/shared/ui/primitives/slider'
 
-import { usePrintStore } from '../stores/print'
+import { usePrintMargin } from '../hooks/print-margin'
 
 function PrintMarginField() {
-  const { margin, setMargin } = usePrintStore(
-    useShallow((state) => ({ margin: state.margin, setMargin: state.setMargin }))
-  )
+  const { margin, setMargin } = usePrintMargin()
 
   return (
     <Field>

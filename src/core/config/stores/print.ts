@@ -2,7 +2,7 @@ import { create } from 'zustand'
 
 import type { Orientation, Paper } from '@/lib/hanzi-worksheet-generator'
 
-interface PrintStore {
+interface PrintSettingsStore {
   paper: Paper
   orientation: Orientation
   margin: number
@@ -12,7 +12,7 @@ interface PrintStore {
   reset: () => void
 }
 
-const usePrintStore = create<PrintStore>()((set) => ({
+const usePrintSettingsStore = create<PrintSettingsStore>()((set) => ({
   paper: 'A4',
   orientation: 'portrait',
   margin: 12.7,
@@ -23,4 +23,4 @@ const usePrintStore = create<PrintStore>()((set) => ({
   reset: () => set({ paper: 'A4', orientation: 'portrait', margin: 12.7 }),
 }))
 
-export { usePrintStore }
+export { usePrintSettingsStore }

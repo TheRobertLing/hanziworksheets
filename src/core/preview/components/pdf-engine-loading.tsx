@@ -1,7 +1,7 @@
 import { Spinner } from '@/shared/ui/primitives/spinner'
 import { Empty, EmptyDescription, EmptyHeader, EmptyTitle } from '@/shared/ui/primitives/empty'
 
-function EngineLoading() {
+function PdfEngineLoading() {
   return (
     <Empty className="h-full">
       <EmptyHeader className="animate-in duration-300 fade-in-0">
@@ -14,4 +14,4 @@ function EngineLoading() {
   )
 }
 
-export { EngineLoading }
+export { PdfEngineLoading }
