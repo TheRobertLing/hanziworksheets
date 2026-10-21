@@ -2,6 +2,7 @@ import type { PrintConfig } from '@/lib/hanzi-worksheet-generator/types'
 import { Document, Font, Page, View } from '@react-pdf/renderer'
 import type { ReactNode } from 'react'
 
+// react-pdf (fontkit) cannot embed WOFF2 fonts into PDFs, so this font must stay TTF
 Font.register({ family: 'Pinyin', src: '/fonts/pinyin.ttf' })
 
 interface PageLayoutProps {

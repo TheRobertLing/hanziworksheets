@@ -4,7 +4,7 @@
 
 @font-face {
   font-family: 'OPPOSans';
-  src: url('/fonts/opposans4.0.ttf') format('truetype');
+  src: url('/fonts/opposans4.0.woff2') format('woff2');
   font-style: normal;
   font-weight: 100 900;
   font-display: swap;

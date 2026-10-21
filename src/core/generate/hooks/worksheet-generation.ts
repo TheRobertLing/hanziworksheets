@@ -3,7 +3,6 @@ import { useQueryClient } from '@tanstack/react-query'
 
 import { useWorksheetConfig } from '@/core/config'
 import { fetchStrokes } from '@/lib/hanzi-stroke-data'
-import { generateHanziWorksheet } from '@/lib/hanzi-worksheet-generator'
 import { useGeneratedWorksheet } from './generated-worksheet'
 import { useWorksheetGenerationStatus } from './worksheet-generation-status'
 
@@ -33,6 +32,13 @@ function useWorksheetGeneration() {
         }))
       )
 
+      const { generateHanziWorksheet } = await import('@/lib/hanzi-worksheet-generator').catch(
+        () => {
+          throw new Error(
+            'Could not load the worksheet generator. Check your connection or refresh the page.'
+          )
+        }
+      )
       const worksheetBlob = await generateHanziWorksheet({
         characters: worksheetCharacters,
         template: worksheetConfig.template,
