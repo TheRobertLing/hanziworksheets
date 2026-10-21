@@ -2,7 +2,7 @@ import type { PrintConfig } from '@/lib/hanzi-worksheet-generator/types'
 import { Document, Font, Page, View } from '@react-pdf/renderer'
 import type { ReactNode } from 'react'
 
-Font.register({ family: 'Pinyin', src: '/fonts/pinyin.ttf' })
+Font.register({ family: 'Pinyin', src: '/fonts/pinyin.woff2' })
 
 interface PageLayoutProps {
   printConfig: PrintConfig
