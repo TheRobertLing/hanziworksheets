@@ -1,7 +1,7 @@
 import { PencilIcon } from 'lucide-react'
 
 import { GenerateWorksheetButton } from '@/core/generate'
-import { WorksheetPreview } from '@/core/preview'
+import { WorksheetPreview } from '@/core/pdf-previewer'
 import { ConfigPanel } from '@/core/config'
 import { TooltipButton } from '@/shared/ui/composites/tooltip-button'
 import {

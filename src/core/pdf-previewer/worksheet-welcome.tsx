@@ -1,14 +1,14 @@
 import { useMobile } from '@/shared/hooks/use-mobile'
 import { Empty, EmptyDescription, EmptyHeader, EmptyTitle } from '@/shared/ui/primitives/empty'
 
-function DocumentEmpty() {
+function WorksheetWelcome() {
   const { isMobile } = useMobile()
 
   return (
-    <Empty className="h-full">
+    <Empty className="bg-muted">
       <EmptyHeader className="animate-in duration-300 fade-in-0">
         <EmptyTitle>
-          Welcome to <span className="font-bold">hanziworksheets</span>{' '}
+          Welcome to <span className="font-bold">hanziworksheets</span>
         </EmptyTitle>
         <EmptyDescription>
           {isMobile
@@ -20,4 +20,4 @@ function DocumentEmpty() {
   )
 }
 
-export { DocumentEmpty }
+export { WorksheetWelcome }

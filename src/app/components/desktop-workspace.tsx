@@ -1,5 +1,5 @@
 import { GenerateWorksheetButton } from '@/core/generate'
-import { WorksheetPreview } from '@/core/preview'
+import { WorksheetPreview } from '@/core/pdf-previewer'
 import { ConfigPanel } from '@/core/config'
 
 function DesktopWorkspace() {
