@@ -2,7 +2,6 @@ import { useWorksheetGeneration } from '@/core/generate'
 import { PDFError } from './error'
 import { PDFLoading } from './loading'
 import { PDFPreviewer } from './previewer'
-import { WorksheetToolbar } from './worksheet-toolbar'
 import { WorksheetWelcome } from './worksheet-welcome'
 
 function WorksheetPreview() {
@@ -30,9 +29,8 @@ function WorksheetPreview() {
   }
 
   return (
-    <div className="relative h-full">
+    <div className="h-full">
       <PDFPreviewer url={worksheetUrl} />
-      <WorksheetToolbar url={worksheetUrl} />
     </div>
   )
 }

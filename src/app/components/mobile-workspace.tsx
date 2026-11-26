@@ -1,6 +1,6 @@
 import { PencilIcon } from 'lucide-react'
 
-import { GenerateWorksheetButton } from '@/core/generate'
+import { DownloadWorksheetButton, GenerateWorksheetButton } from '@/core/generate'
 import { WorksheetPreview } from '@/core/pdf-previewer'
 import { ConfigPanel } from '@/core/config'
 import { TooltipButton } from '@/shared/ui/composites/tooltip-button'
@@ -48,8 +48,11 @@ function MobileWorkspace() {
             </div>
           </div>
 
-          <SheetFooter className="shrink-0 border-t p-3">
-            <SheetClose render={<GenerateWorksheetButton />} />
+          <SheetFooter className="shrink-0 border-t p-1.5">
+            <div className="flex gap-1.5">
+              <SheetClose render={<GenerateWorksheetButton className="min-w-0 flex-1" />} />
+              <DownloadWorksheetButton />
+            </div>
           </SheetFooter>
         </SheetContent>
       </Sheet>

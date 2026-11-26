@@ -1,4 +1,4 @@
-import { GenerateWorksheetButton } from '@/core/generate'
+import { DownloadWorksheetButton, GenerateWorksheetButton } from '@/core/generate'
 import { WorksheetPreview } from '@/core/pdf-previewer'
 import { ConfigPanel } from '@/core/config'
 
@@ -14,8 +14,9 @@ function DesktopWorkspace() {
             <ConfigPanel />
           </div>
         </div>
-        <div className="shrink-0 border-t p-3">
-          <GenerateWorksheetButton />
+        <div className="flex shrink-0 gap-1.5 border-t p-1.5">
+          <GenerateWorksheetButton className="min-w-0 flex-1" />
+          <DownloadWorksheetButton />
         </div>
       </div>
     </main>
