@@ -42,8 +42,8 @@ function MobileWorkspace() {
             <SheetTitle>Configuration</SheetTitle>
           </SheetHeader>
 
-          <div className="min-h-0 flex-1 scrollbar-gutter-stable overflow-y-auto">
-            <div className="h-fit min-h-full border-r p-3">
+          <div className="min-h-0 flex-1 overflow-y-auto">
+            <div className="h-fit min-h-full border-r">
               <ConfigPanel />
             </div>
           </div>

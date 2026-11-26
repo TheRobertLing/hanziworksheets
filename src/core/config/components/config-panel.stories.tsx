@@ -32,7 +32,7 @@ const meta = {
   decorators: [
     // Matches the sidebar width in desktop-workspace.tsx (w-90).
     (Story) => (
-      <div className="w-90 p-3">
+      <div className="w-90 border">
         <Story />
         <Toaster />
       </div>

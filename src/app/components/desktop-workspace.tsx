@@ -9,8 +9,8 @@ function DesktopWorkspace() {
         <WorksheetPreview />
       </div>
       <div className="flex w-90 shrink-0 flex-col border-s">
-        <div className="min-h-0 flex-1 scrollbar-gutter-stable overflow-y-auto overscroll-none">
-          <div className="h-fit min-h-full border-r p-3">
+        <div className="min-h-0 flex-1 overflow-y-auto overscroll-none">
+          <div className="h-fit min-h-full border-r">
             <ConfigPanel />
           </div>
         </div>
