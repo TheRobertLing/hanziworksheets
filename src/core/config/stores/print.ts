@@ -9,7 +9,6 @@ interface PrintSettingsStore {
   setPaper: (paper: Paper) => void
   setOrientation: (orientation: Orientation) => void
   setMargin: (margin: number) => void
-  reset: () => void
 }
 
 const usePrintSettingsStore = create<PrintSettingsStore>()((set) => ({
@@ -20,7 +19,6 @@ const usePrintSettingsStore = create<PrintSettingsStore>()((set) => ({
   setPaper: (paper) => set({ paper }),
   setOrientation: (orientation) => set({ orientation }),
   setMargin: (margin) => set({ margin }),
-  reset: () => set({ paper: 'A4', orientation: 'portrait', margin: 12.7 }),
 }))
 
 export { usePrintSettingsStore }

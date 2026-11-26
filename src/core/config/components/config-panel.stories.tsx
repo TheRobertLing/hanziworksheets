@@ -12,9 +12,9 @@ import { TemplateSettings } from './template-settings'
 
 // The stores are global, so reset them before each story to keep stories independent.
 function resetStores() {
-  useCharacterEntriesStore.getState().clearCharacterEntries()
-  usePrintSettingsStore.getState().reset()
-  useTemplateStore.getState().reset()
+  useCharacterEntriesStore.setState(useCharacterEntriesStore.getInitialState())
+  usePrintSettingsStore.setState(usePrintSettingsStore.getInitialState())
+  useTemplateStore.setState(useTemplateStore.getInitialState())
 }
 
 // Includes 行 and 长 because they have more than one pinyin reading.

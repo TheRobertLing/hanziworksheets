@@ -2,7 +2,6 @@ import { FieldGroup, FieldSeparator } from '@/shared/ui/primitives/field'
 
 import { CharacterEntriesAddForm } from './character-entries-add-form'
 import { CharacterEntryList } from './character-entry-list'
-import { CharacterEntriesClearButton } from './character-entries-clear-button'
 
 function CharacterEntriesSection() {
   return (
@@ -10,8 +9,6 @@ function CharacterEntriesSection() {
       <CharacterEntriesAddForm />
       <FieldSeparator />
       <CharacterEntryList />
-      <FieldSeparator />
-      <CharacterEntriesClearButton />
     </FieldGroup>
   )
 }
