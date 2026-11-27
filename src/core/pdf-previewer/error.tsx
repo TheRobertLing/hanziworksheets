@@ -23,14 +23,14 @@ function PDFError({
       <EmptyHeader>
         <EmptyTitle>Error</EmptyTitle>
         <EmptyDescription>{description}</EmptyDescription>
-        {onRetry && (
-          <EmptyContent className="mt-1.5">
-            <Button variant="outline" size="sm" onClick={onRetry} disabled={retryDisabled}>
-              Try again
-            </Button>
-          </EmptyContent>
-        )}
       </EmptyHeader>
+      {onRetry && (
+        <EmptyContent>
+          <Button variant="outline" size="sm" onClick={onRetry} disabled={retryDisabled}>
+            Try again
+          </Button>
+        </EmptyContent>
+      )}
     </Empty>
   )
 }

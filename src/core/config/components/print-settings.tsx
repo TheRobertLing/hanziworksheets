@@ -6,7 +6,7 @@ import { PrintPaperSizeField } from './print-paper-size-field'
 
 function PrintSettings() {
   return (
-    <FieldGroup className="gap-3 p-1">
+    <FieldGroup>
       <PrintPaperSizeField />
       <FieldSeparator />
       <PrintOrientationField />

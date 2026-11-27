@@ -5,7 +5,7 @@ import { ThemeToggle } from './theme-toggle'
 
 function Header() {
   return (
-    <header className="flex h-14 shrink-0 items-center justify-between border-b px-4">
+    <header className="flex h-14 shrink-0 items-center justify-between border-b px-3">
       <div className="flex items-center gap-2 font-bold">
         <Logo />
         <span className="hidden lg:block">hanziworksheets</span>

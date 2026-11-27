@@ -22,7 +22,7 @@ function PDFPreviewer({ url }: PDFPreviewerProps) {
       {deferredUrl ? (
         <ErrorBoundary resetKeys={[deferredUrl]} fallback={<PDFError />}>
           <Suspense fallback={<PDFLoading />}>
-            <Document file={deferredUrl} className="p-4">
+            <Document file={deferredUrl} className="p-8">
               {({ pdf }) => <PDFPages pageCount={pdf.numPages} />}
             </Document>
           </Suspense>

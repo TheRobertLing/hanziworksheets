@@ -8,7 +8,7 @@ interface PDFPagesProps {
 
 function PDFPages({ pageCount }: PDFPagesProps) {
   return (
-    <div className="flex flex-col items-center gap-4">
+    <div className="flex flex-col items-center gap-8">
       {Array.from({ length: pageCount }, (_, index) => (
         <Page
           key={index}

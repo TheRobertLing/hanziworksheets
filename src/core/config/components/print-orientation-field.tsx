@@ -12,6 +12,7 @@ function PrintOrientationField() {
     <Field>
       <FieldLabel>Orientation</FieldLabel>
       <RadioGroup
+        className="gap-2"
         value={orientation}
         onValueChange={(value) => setOrientation(value as Orientation)}
       >

@@ -8,7 +8,7 @@ import { TemplateSelectionField } from './template-selection-field'
 
 function TemplateSettings() {
   return (
-    <FieldGroup className="gap-3 p-1">
+    <FieldGroup>
       <TemplateSelectionField />
       <FieldSeparator />
       <TemplateShowPinyinField />

@@ -29,8 +29,8 @@ function AttributionsDialog() {
           </DialogDescription>
         </DialogHeader>
 
-        <div className="grid gap-3 text-muted-foreground">
-          <section>
+        <div className="grid gap-4 text-muted-foreground">
+          <section className="grid gap-1">
             <h3 className="font-medium text-foreground">Character data</h3>
             <p>
               Stroke-order graphics from{' '}
@@ -55,7 +55,7 @@ function AttributionsDialog() {
             </p>
           </section>
 
-          <section>
+          <section className="grid gap-1">
             <h3 className="font-medium text-foreground">Typefaces</h3>
             <p>
               <a
@@ -80,7 +80,7 @@ function AttributionsDialog() {
               by the Noto project, licensed under the SIL Open Font License 1.1.
             </p>
           </section>
-          <section>
+          <section className="grid gap-1">
             <h3 className="font-medium text-foreground">Colours</h3>
             <p>
               Transport mode colours from{' '}

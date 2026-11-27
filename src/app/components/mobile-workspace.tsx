@@ -36,20 +36,18 @@ function MobileWorkspace() {
 
         <SheetContent
           side="right"
-          className="data-[side=right]:w-[min(90vw,22.5rem)] sm:data-[side=right]:max-w-90"
+          className="bg-background data-[side=right]:w-[min(90vw,22.5rem)] sm:data-[side=right]:max-w-90"
         >
-          <SheetHeader className="h-14 shrink-0 justify-center border-b">
+          <SheetHeader className="h-14 shrink-0 justify-center border-b px-3">
             <SheetTitle>Configuration</SheetTitle>
           </SheetHeader>
 
-          <div className="min-h-0 flex-1 overflow-y-auto">
-            <div className="h-fit min-h-full border-r">
-              <ConfigPanel />
-            </div>
+          <div className="min-h-0 flex-1">
+            <ConfigPanel />
           </div>
 
-          <SheetFooter className="shrink-0 border-t p-1.5">
-            <div className="flex gap-1.5">
+          <SheetFooter className="shrink-0 border-t p-3">
+            <div className="flex gap-2">
               <SheetClose render={<GenerateWorksheetButton className="min-w-0 flex-1" />} />
               <DownloadWorksheetButton />
             </div>

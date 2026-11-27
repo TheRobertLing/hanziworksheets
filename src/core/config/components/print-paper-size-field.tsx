@@ -9,7 +9,7 @@ function PrintPaperSizeField() {
   return (
     <Field>
       <FieldLabel>Paper size</FieldLabel>
-      <RadioGroup value={paper} onValueChange={(value) => setPaper(value)}>
+      <RadioGroup className="gap-2" value={paper} onValueChange={(value) => setPaper(value)}>
         <FieldLabel htmlFor="paper-a4">
           <Field orientation="horizontal">
             <RadioGroupItem id="paper-a4" value="A4" />
