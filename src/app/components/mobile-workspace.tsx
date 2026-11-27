@@ -20,14 +20,12 @@ function MobileWorkspace() {
       <WorksheetPreview />
 
       <Sheet>
-        <div className="absolute right-4 bottom-4 z-20 flex items-center rounded-full bg-popover/70 shadow-lg backdrop-blur-sm">
+        <div className="absolute right-2 bottom-2 z-20">
           <TooltipButton
             tooltipProps={{ side: 'left', children: 'Edit worksheet configuration' }}
             buttonProps={{
               render: <SheetTrigger />,
-              variant: 'outline',
               size: 'icon',
-              className: 'rounded-full',
               'aria-label': 'Edit worksheet configuration',
               children: <PencilIcon />,
             }}
