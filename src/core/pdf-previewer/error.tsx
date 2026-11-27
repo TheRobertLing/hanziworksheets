@@ -19,7 +19,7 @@ function PDFError({
   retryDisabled,
 }: PDFErrorProps) {
   return (
-    <Empty className="bg-muted">
+    <Empty className="bg-card">
       <EmptyHeader>
         <EmptyTitle>Error</EmptyTitle>
         <EmptyDescription>{description}</EmptyDescription>

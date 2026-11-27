@@ -2,7 +2,7 @@ import { Empty, EmptyDescription, EmptyHeader, EmptyTitle } from '@/shared/ui/pr
 
 function PDFNoData() {
   return (
-    <Empty className="bg-muted">
+    <Empty className="bg-card">
       <EmptyHeader>
         <EmptyTitle>No PDF</EmptyTitle>
         <EmptyDescription>There is no PDF to show</EmptyDescription>

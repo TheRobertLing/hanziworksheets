@@ -3,7 +3,7 @@ import { Spinner } from '@/shared/ui/primitives/spinner'
 
 function PDFLoading() {
   return (
-    <Empty className="bg-muted">
+    <Empty className="bg-card">
       <EmptyHeader>
         <EmptyTitle>
           <Spinner />

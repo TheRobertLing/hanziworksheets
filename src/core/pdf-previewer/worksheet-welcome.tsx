@@ -5,7 +5,7 @@ function WorksheetWelcome() {
   const { isMobile } = useMobile()
 
   return (
-    <Empty className="bg-muted">
+    <Empty className="rounded-none bg-card">
       <EmptyHeader className="animate-in duration-300 fade-in-0">
         <EmptyTitle>
           Welcome to <span className="font-bold">hanziworksheets</span>
