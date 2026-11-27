@@ -18,7 +18,7 @@ function PDFPreviewer({ url }: PDFPreviewerProps) {
   const deferredUrl = useDeferredValue(url)
 
   return (
-    <div className="flex h-full flex-col overflow-auto bg-card">
+    <div className="flex h-full flex-col overflow-auto bg-muted dark:bg-card">
       {deferredUrl ? (
         <ErrorBoundary resetKeys={[deferredUrl]} fallback={<PDFError />}>
           <Suspense fallback={<PDFLoading />}>
