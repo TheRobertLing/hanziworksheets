@@ -9,6 +9,7 @@ function useCharacterEntries() {
       addCharacterEntries: state.addCharacterEntries,
       setCharacterEntryPinyin: state.setCharacterEntryPinyin,
       removeCharacterEntry: state.removeCharacterEntry,
+      clearCharacterEntries: state.clearCharacterEntries,
     }))
   )
 }

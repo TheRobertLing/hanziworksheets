@@ -13,6 +13,7 @@ interface CharacterEntriesStore {
   addCharacterEntries: (charactersToAdd: string[]) => string[]
   setCharacterEntryPinyin: (id: string, pinyin: string) => void
   removeCharacterEntry: (id: string) => void
+  clearCharacterEntries: () => void
 }
 
 const useCharacterEntriesStore = create<CharacterEntriesStore>()((set) => ({
@@ -61,6 +62,8 @@ const useCharacterEntriesStore = create<CharacterEntriesStore>()((set) => ({
     set((state) => ({
       characterEntries: state.characterEntries.filter((characterEntry) => characterEntry.id !== id),
     })),
+
+  clearCharacterEntries: () => set({ characterEntries: [] }),
 }))
 
 export { useCharacterEntriesStore }

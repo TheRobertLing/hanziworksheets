@@ -1,14 +1,18 @@
 import { FieldGroup, FieldSeparator } from '@/shared/ui/primitives/field'
 
-import { CharacterEntriesAddForm } from './character-entries-add-form'
+import { CharacterEntriesInstructions } from './character-entries-instructions'
+import { CharacterSearch } from './character-search'
 import { CharacterEntryList } from './character-entry-list'
 
 function CharacterEntriesSection() {
   return (
-    <FieldGroup className="gap-3 p-1">
-      <CharacterEntriesAddForm />
+    <FieldGroup className="flex-1">
+      <CharacterEntriesInstructions />
       <FieldSeparator />
-      <CharacterEntryList />
+      <div className="flex flex-1 flex-col gap-4">
+        <CharacterSearch />
+        <CharacterEntryList />
+      </div>
     </FieldGroup>
   )
 }
