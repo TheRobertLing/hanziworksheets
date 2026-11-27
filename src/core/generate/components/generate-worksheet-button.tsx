@@ -20,7 +20,7 @@ function GenerateWorksheetButton({
       disabled={disabled || !canGenerate || isGenerating}
       className={cn('w-full', className)}
     >
-      Generate Worksheet
+      Generate worksheet
     </Button>
   )
 }
