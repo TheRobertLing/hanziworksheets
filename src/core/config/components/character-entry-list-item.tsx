@@ -18,7 +18,7 @@ function CharacterEntryListItem({
   onRemoveCharacterEntry,
 }: CharacterEntryListItemProps) {
   return (
-    <Item role="listitem" variant="muted" size="sm" className="flex-nowrap gap-2 px-2 py-1">
+    <Item role="listitem" variant="muted" size="sm" className="flex-nowrap gap-2 px-2 py-1 pe-1">
       <ItemMedia>{characterEntry.character}</ItemMedia>
 
       <ItemContent>

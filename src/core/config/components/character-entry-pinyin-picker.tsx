@@ -7,10 +7,10 @@ import { cn } from '@/shared/utils'
 import type { CharacterEntry } from '../hooks/character-entries'
 
 const radioClassName = cn(
-  'cursor-pointer rounded-md px-2 py-0.5 text-xs font-medium text-muted-foreground transition-colors outline-none',
-  'data-checked:bg-primary/15 data-checked:text-primary',
-  'not-data-checked:hover:bg-primary/5 not-data-checked:hover:text-primary/70',
-  'focus-visible:ring-[3px] focus-visible:ring-ring/50'
+  'cursor-pointer rounded-md border border-transparent px-2 py-0.5 text-xs font-medium text-muted-foreground transition-colors outline-none',
+  'data-checked:border-border data-checked:bg-foreground/5 data-checked:text-foreground dark:data-checked:bg-foreground/10',
+  'not-data-checked:hover:bg-input/40 not-data-checked:hover:text-foreground',
+  'focus-visible:border-ring focus-visible:ring-2 focus-visible:ring-ring/30'
 )
 
 interface CharacterEntryPinyinPickerProps {
