@@ -1,18 +1,10 @@
-import { Trash2 } from 'lucide-react'
+import { X } from 'lucide-react'
 
 import { Button } from '@/shared/ui/primitives/button'
-import { ButtonGroup, ButtonGroupText } from '@/shared/ui/primitives/button-group'
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectLabel,
-  SelectTrigger,
-  SelectValue,
-} from '@/shared/ui/primitives/select'
+import { Item, ItemActions, ItemContent, ItemMedia } from '@/shared/ui/primitives/item'
 
 import type { CharacterEntry } from '../hooks/character-entries'
+import { CharacterEntryPinyinPicker } from './character-entry-pinyin-picker'
 
 interface CharacterEntryListItemProps {
   characterEntry: CharacterEntry
@@ -26,40 +18,28 @@ function CharacterEntryListItem({
   onRemoveCharacterEntry,
 }: CharacterEntryListItemProps) {
   return (
-    <ButtonGroup className="w-full">
-      <ButtonGroupText className="border-input font-light">
-        {characterEntry.character}
-      </ButtonGroupText>
+    <Item role="listitem" variant="outline" size="sm" className="flex-nowrap gap-2 px-2 py-1 pe-1">
+      <ItemMedia>{characterEntry.character}</ItemMedia>
 
-      <Select
-        value={characterEntry.pinyin}
-        onValueChange={(value) => onPinyinChange(characterEntry.id, value as string)}
-      >
-        <SelectTrigger className="flex-1" aria-label={`Reading for ${characterEntry.character}`}>
-          <SelectValue />
-        </SelectTrigger>
-        <SelectContent alignItemWithTrigger={false}>
-          <SelectGroup>
-            <SelectLabel>Choose pinyin</SelectLabel>
-            {characterEntry.pinyinOptions.map((pinyinOption) => (
-              <SelectItem key={pinyinOption} value={pinyinOption}>
-                {pinyinOption}
-              </SelectItem>
-            ))}
-          </SelectGroup>
-        </SelectContent>
-      </Select>
+      <ItemContent>
+        <CharacterEntryPinyinPicker
+          characterEntry={characterEntry}
+          onPinyinChange={onPinyinChange}
+        />
+      </ItemContent>
 
-      <Button
-        variant="outline"
-        size="icon"
-        className="border-input"
-        aria-label={`Remove ${characterEntry.character}`}
-        onClick={() => onRemoveCharacterEntry(characterEntry.id)}
-      >
-        <Trash2 />
-      </Button>
-    </ButtonGroup>
+      <ItemActions>
+        <Button
+          variant="ghost"
+          size="icon-sm"
+          className="text-muted-foreground"
+          aria-label={`Remove ${characterEntry.character}`}
+          onClick={() => onRemoveCharacterEntry(characterEntry.id)}
+        >
+          <X />
+        </Button>
+      </ItemActions>
+    </Item>
   )
 }
 

@@ -1,9 +1,14 @@
+import { useShallow } from 'zustand/react/shallow'
+
 import { useWorksheetGeneratorStore } from '../stores/worksheet-generator'
 
 function useGeneratedWorksheet() {
-  const worksheetBlob = useWorksheetGeneratorStore((state) => state.worksheetBlob)
-
-  return { worksheetBlob }
+  return useWorksheetGeneratorStore(
+    useShallow((state) => ({
+      worksheetBlob: state.worksheetBlob,
+      worksheetUrl: state.worksheetUrl,
+    }))
+  )
 }
 
 export { useGeneratedWorksheet }

@@ -1,40 +1,49 @@
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from '@/shared/ui/primitives/accordion'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/shared/ui/primitives/tabs'
 import { CharacterEntriesSection } from './character-entries-section'
 import { PrintSettings } from './print-settings'
 import { TemplateSettings } from './template-settings'
 
-const accordionTriggerClassName = 'rounded-t-[inherit] p-3'
-const accordionItemClassName = 'rounded-lg border'
+const TAB_CONTENT_CLASS = 'flex min-h-0 flex-col overflow-y-auto ps-3 scrollbar-gutter-stable'
+const TAB_BODY_CLASS = 'flex flex-1 flex-col border-e py-3 pe-3'
+// Push the active underline down onto the list's border-b (12px padding + 1px border)
+const TAB_TRIGGER_CLASS = 'group-data-horizontal/tabs:after:-bottom-[13px]'
 
 function ConfigPanel() {
   return (
-    <Accordion defaultValue={['characters']} multiple className="gap-3 rounded-none border-none">
-      <AccordionItem value="characters" className={accordionItemClassName}>
-        <AccordionTrigger className={accordionTriggerClassName}>Characters</AccordionTrigger>
-        <AccordionContent className="py-2">
+    <Tabs defaultValue="characters" className="h-full min-h-0 gap-0">
+      <TabsList
+        variant="line"
+        className="w-full shrink-0 gap-1 rounded-none border-b p-3 group-data-horizontal/tabs:h-auto *:data-[slot=tabs-trigger]:h-7"
+      >
+        <TabsTrigger value="characters" className={TAB_TRIGGER_CLASS}>
+          Characters
+        </TabsTrigger>
+        <TabsTrigger value="template" className={TAB_TRIGGER_CLASS}>
+          Template
+        </TabsTrigger>
+        <TabsTrigger value="print" className={TAB_TRIGGER_CLASS}>
+          Print
+        </TabsTrigger>
+      </TabsList>
+
+      <TabsContent value="characters" className={TAB_CONTENT_CLASS}>
+        <div className={TAB_BODY_CLASS}>
           <CharacterEntriesSection />
-        </AccordionContent>
-      </AccordionItem>
+        </div>
+      </TabsContent>
 
-      <AccordionItem value="worksheet" className={accordionItemClassName}>
-        <AccordionTrigger className={accordionTriggerClassName}>Template</AccordionTrigger>
-        <AccordionContent className="py-2">
+      <TabsContent value="template" className={TAB_CONTENT_CLASS}>
+        <div className={TAB_BODY_CLASS}>
           <TemplateSettings />
-        </AccordionContent>
-      </AccordionItem>
+        </div>
+      </TabsContent>
 
-      <AccordionItem value="page" className={accordionItemClassName}>
-        <AccordionTrigger className={accordionTriggerClassName}>Print</AccordionTrigger>
-        <AccordionContent className="py-2">
+      <TabsContent value="print" className={TAB_CONTENT_CLASS}>
+        <div className={TAB_BODY_CLASS}>
           <PrintSettings />
-        </AccordionContent>
-      </AccordionItem>
-    </Accordion>
+        </div>
+      </TabsContent>
+    </Tabs>
   )
 }
 

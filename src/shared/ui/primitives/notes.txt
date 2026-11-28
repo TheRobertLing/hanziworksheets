@@ -1,0 +1,29 @@
+Custom changes made over whatever defaults were given in the components when downloaded:
+
+1. tooltip.tsx
+   - TooltipPrimitive.Arrow removed/commented out
+
+2. input.tsx
+   - Input text size is always text-xs/relaxed
+   - Default was "text-sm md:text-xs/relaxed" (bigger text on mobile)
+
+3. field.tsx (FieldLabel)
+   - Checked background uses foreground instead of primary
+   - has-data-checked:bg-foreground/5 and dark:has-data-checked:bg-foreground/10
+   - Default was bg-primary/5 and dark:bg-primary/10
+
+4. combobox.tsx
+   - ComboboxInput wraps the group in <ComboboxPrimitive.InputGroup render={<InputGroup ... />}>
+     Default used a plain <InputGroup>
+   - ComboboxContent popup uses min-w-(--anchor-width)
+     Default was min-w-[calc(var(--anchor-width)+--spacing(7))] plus data-[chips=true]:min-w-(--anchor-width)
+   - ComboboxList max height calc uses -(--spacing(9))
+     Default had "---spacing(9)" (no brackets)
+
+5. virtualized-combobox.tsx
+   - Not from shadcn. Fully custom file.
+
+Ignore "use client" lines when comparing. shadcn removes them because rsc is false in components.json.
+
+To check a component against the latest shadcn version (nothing gets written):
+   pnpm exec shadcn add <component> --diff

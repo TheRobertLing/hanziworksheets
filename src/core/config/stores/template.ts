@@ -10,7 +10,6 @@ interface TemplateStore {
   setShowStrokeGuide: (showStrokeGuide: boolean) => void
   setGridStyle: (gridStyle: GridStyle) => void
   setGridSize: (gridSize: number) => void
-  reset: () => void
 }
 
 const useTemplateStore = create<TemplateStore>()((set) => ({
@@ -23,13 +22,6 @@ const useTemplateStore = create<TemplateStore>()((set) => ({
   setShowStrokeGuide: (showStrokeGuide) => set({ showStrokeGuide }),
   setGridStyle: (gridStyle) => set({ gridStyle }),
   setGridSize: (gridSize) => set({ gridSize }),
-  reset: () =>
-    set({
-      showPinyin: true,
-      showStrokeGuide: true,
-      gridStyle: 'tian',
-      gridSize: 20,
-    }),
 }))
 
 export { useTemplateStore }

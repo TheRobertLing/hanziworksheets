@@ -9,7 +9,11 @@ function TemplateGridStyleField() {
   return (
     <Field>
       <FieldLabel>Grid style</FieldLabel>
-      <RadioGroup value={gridStyle} onValueChange={(value) => setGridStyle(value as GridStyle)}>
+      <RadioGroup
+        className="gap-2"
+        value={gridStyle}
+        onValueChange={(value) => setGridStyle(value as GridStyle)}
+      >
         <FieldLabel htmlFor="grid-tian">
           <Field orientation="horizontal">
             <RadioGroupItem id="grid-tian" value="tian" />

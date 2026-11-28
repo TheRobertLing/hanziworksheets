@@ -9,7 +9,7 @@ import { useWorksheetGenerationStatus } from './worksheet-generation-status'
 function useWorksheetGeneration() {
   const queryClient = useQueryClient()
   const worksheetConfig = useWorksheetConfig()
-  const { worksheetBlob } = useGeneratedWorksheet()
+  const { worksheetBlob, worksheetUrl } = useGeneratedWorksheet()
   const { status, error, startGeneration, completeGeneration, failGeneration } =
     useWorksheetGenerationStatus()
   const canGenerate = worksheetConfig.characters.length > 0
@@ -54,6 +54,7 @@ function useWorksheetGeneration() {
   return useMemo(
     () => ({
       worksheetBlob,
+      worksheetUrl,
       status,
       error,
       isGenerating: status === 'loading',
@@ -61,7 +62,7 @@ function useWorksheetGeneration() {
       canGenerate,
       generate,
     }),
-    [canGenerate, error, generate, status, worksheetBlob]
+    [canGenerate, error, generate, status, worksheetBlob, worksheetUrl]
   )
 }
 

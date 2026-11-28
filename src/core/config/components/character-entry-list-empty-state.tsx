@@ -1,11 +1,10 @@
-import { Empty, EmptyDescription, EmptyHeader, EmptyTitle } from '@/shared/ui/primitives/empty'
+import { Empty, EmptyDescription, EmptyHeader } from '@/shared/ui/primitives/empty'
 
 function CharacterEntryListEmptyState() {
   return (
     <Empty className="border-none">
       <EmptyHeader>
-        <EmptyTitle>No characters added yet</EmptyTitle>
-        <EmptyDescription>Add characters using the input field above</EmptyDescription>
+        <EmptyDescription>No characters added yet</EmptyDescription>
       </EmptyHeader>
     </Empty>
   )

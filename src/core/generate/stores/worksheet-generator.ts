@@ -4,6 +4,7 @@ type WorksheetGenerationStatus = 'idle' | 'loading' | 'success' | 'error'
 
 interface WorksheetGeneratorStore {
   worksheetBlob: Blob | null
+  worksheetUrl: string | null
   status: WorksheetGenerationStatus
   error: string | null
   startGeneration: () => boolean
@@ -13,6 +14,7 @@ interface WorksheetGeneratorStore {
 
 const useWorksheetGeneratorStore = create<WorksheetGeneratorStore>()((set, get) => ({
   worksheetBlob: null,
+  worksheetUrl: null,
   status: 'idle',
   error: null,
   startGeneration: () => {
@@ -21,7 +23,17 @@ const useWorksheetGeneratorStore = create<WorksheetGeneratorStore>()((set, get) 
     set({ status: 'loading', error: null })
     return true
   },
-  completeGeneration: (worksheetBlob) => set({ worksheetBlob, status: 'success', error: null }),
+  completeGeneration: (worksheetBlob) => {
+    const previousWorksheetUrl = get().worksheetUrl
+    if (previousWorksheetUrl) URL.revokeObjectURL(previousWorksheetUrl)
+
+    set({
+      worksheetBlob,
+      worksheetUrl: URL.createObjectURL(worksheetBlob),
+      status: 'success',
+      error: null,
+    })
+  },
   failGeneration: (error) => set({ status: 'error', error }),
 }))
 

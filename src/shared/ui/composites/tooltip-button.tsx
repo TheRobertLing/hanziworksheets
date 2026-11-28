@@ -5,13 +5,14 @@ import { Tooltip, TooltipContent, TooltipTrigger } from '@/shared/ui/primitives/
 interface TooltipButtonProps {
   tooltipProps: React.ComponentProps<typeof TooltipContent>
   buttonProps: React.ComponentProps<typeof Button>
+  rootProps?: React.ComponentProps<typeof Tooltip>
 }
 
-function TooltipButton({ tooltipProps, buttonProps }: TooltipButtonProps) {
+function TooltipButton({ tooltipProps, buttonProps, rootProps }: TooltipButtonProps) {
   const { className, ...restTooltipProps } = tooltipProps
 
   return (
-    <Tooltip>
+    <Tooltip {...rootProps}>
       <TooltipTrigger render={<Button {...buttonProps} />} />
       <TooltipContent
         className={cn('shadow-[0_0_2px_rgba(0,0,0,0.3)]', className)}
